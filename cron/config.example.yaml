@@ -1,0 +1,19 @@
+server:
+  port: "8080"
+
+database:
+  dsn: "root:password@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"
+
+smtp:
+  host: "smtp.example.com"
+  port: 587
+  username: "your_email@example.com"
+  password: "your_smtp_password"
+  from: "your_email@example.com"
+
+reminder:
+  recipients:
+    - "todo_owner@example.com"
+    - "backup_receiver@example.com"
+  cron_spec: "0 8 * * *"
+  timezone: "Asia/Shanghai"
