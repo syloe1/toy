@@ -41,6 +41,31 @@ go mod tidy
 go run ./cmd/server
 ```
 
+## Docker Deploy
+
+Build and start the service with Docker Compose:
+
+```bash
+docker compose up -d --build
+```
+
+The compose file starts both the Go service and MySQL. Before deploying, replace the placeholder SMTP settings in `docker-compose.yml`.
+
+If you already have a managed MySQL instance on your cloud server or cloud provider, keep only the `app` service and point `DATABASE_DSN` to that external database.
+
+The application also supports environment variable overrides, which is convenient for container deployment:
+
+- `SERVER_PORT`
+- `DATABASE_DSN`
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USERNAME`
+- `SMTP_PASSWORD`
+- `SMTP_FROM`
+- `REMINDER_RECIPIENTS` (comma-separated)
+- `REMINDER_CRON_SPEC`
+- `REMINDER_TIMEZONE`
+
 ## API
 
 ### Health Check

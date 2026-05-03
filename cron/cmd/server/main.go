@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	appconfig "cron/internal/config"
 	"cron/internal/dao"
@@ -15,9 +17,14 @@ import (
 )
 
 func main() {
-	cfg, err := appconfig.Load("config.yaml")
+	configPath := strings.TrimSpace(os.Getenv("CONFIG_PATH"))
+	if configPath == "" {
+		configPath = "config.yaml"
+	}
+
+	cfg, err := appconfig.Load(configPath)
 	if err != nil {
-		log.Fatalf("load config: %v", err)
+		log.Fatalf("load config %s: %v", configPath, err)
 	}
 
 	if err := cfg.Validate(); err != nil {

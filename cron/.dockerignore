@@ -1,0 +1,6 @@
+.git
+.gocache
+.gomodcache
+server.exe
+*.exe
+config.yaml

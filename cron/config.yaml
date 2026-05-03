@@ -2,18 +2,19 @@ server:
   port: "8080"
 
 database:
-  dsn: "root:123456@tcp(127.0.0.1:3307)/todolist?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn: "root:123456@tcp(mysql:3307)/todolist?charset=utf8mb4&parseTime=True&loc=Local"
   
 smtp:
   host: "smtp.example.com"
   port: 587
-  username: "your_email@example.com"
-  password: "your_smtp_password"
-  from: "your_email@example.com"
+  username: "your email@example.com"
+  password: "你的邮箱授权码"
+  from: "your email@example.com"
 
 reminder:
   recipients:
     - "syloe112@gmail.com"
     # - "backup_receiver@example.com"
-  cron_spec: "0 7 * * *"
+  cron_spec: "0 6-22/2 * * *"
+  #cron_spec: "* * * * *"
   timezone: "Asia/Shanghai"
